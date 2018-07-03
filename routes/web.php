@@ -19,7 +19,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::resource('productsssses', 'productssssController');
+
 
 Route::get('/categories', 'CategoriesController@index')->name('indexCategories');
 Route::get('/create/categories', 'CategoriesController@create')->name('getCategories');
@@ -40,4 +40,12 @@ Route::get('/store', 'StoreController@index')->name('StoreIndex');
 Route::get('/create/order_detai/store/{id}', 'OrderController@createOrderDetail')->name('getOrderDetailStrore');
 Route::post('/create/order_detai/store', 'OrderController@storeOrderDetail')->name('postOrderDetailStrore');
 
-Route::resource('productgiabans', 'productgiabanController');
+
+Route::get('/productsgiaban', 'productsgiabanController@index')->name('indexProductsgiaban');
+Route::get('/create/productsgiaban', 'productsgiabanController@create')->name('getProductsgiaban');
+Route::post('/create/productsgiaban', 'productsgiabanController@store')->name('postProductsgiaban');
+Route::get('/edit/productsgiaban/{id}', 'productsgiabanController@edit')->name('editProductsgiaban');
+Route::post('/edit/productsgiaban/{id}', 'productsgiabanController@editStore')->name('editStoreProductsgiaban');
+
+Route::get('/delete/productsgiaban/{id}', 'productsgiabanController@destroy')->name('delteProductsgiaban');
+
