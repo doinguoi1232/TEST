@@ -32,7 +32,7 @@
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
+                                                <th>Tên sản phẩm</th>
                                                 <th>Giá bán</th>
                                                 <th>Giá nhập</th>
                                                 <th>Ngày tạo</th>
@@ -46,9 +46,10 @@
                                         @foreach($productsgiabans as $productsgiaban)
                                             <tr>
                                                 <td> <a href="{{ route('editProductsgiaban', ['id' => $productsgiaban->id]) }}">{{ $productsgiaban->name }}</a></td>
-                                                <td>{{ $productsgiaban->created_at }}</td>
+                                                
                                                 <td>{{ $productsgiaban->giaban }}</td>
                                                 <td>{{ $productsgiaban->gianhap }}</td>
+                                                <td>{{ $productsgiaban->created_at }}</td>
                                                 <td>{{ $productsgiaban->updated_at }}</td>
                                                 
                                             </tr>
