@@ -1,6 +1,6 @@
-@extends('admin.master')
+@extends('layouts.app')
 @section('content')
-        <div class="page-wrapper">
+
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
@@ -37,7 +37,7 @@
                                                 <td> {{ $stt= $stt+1}}</a></td>
                                                 
                                                 <td>{{ date('d-m-Y', strtotime($danhthues->created_at)) }}</td>
-                                                <td>{{ $danhthues->danhthu }}</td>
+                                                <td>{{ number_format($danhthues->danhthu,0,",",".") }} </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -52,5 +52,5 @@
                 </div>
                 <!-- End PAge Content -->
             </div>
-        </div>
+
 @endsection

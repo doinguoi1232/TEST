@@ -45,13 +45,6 @@
                                                      {!! Form::text('so_luong', null, ['class' => 'form-control']) !!}
                                                  </div>
                                              </div>
-                                             <div class="form-group">
-                                                <h3 class="text-primary">Giảm giá:</h3>
-                                                 <div class="form-conrols">
-                                                     {!! Form::text('giam_gia', null, ['class' => 'form-control']) !!}
-                                                 </div>
-                                             </div>
-                                             
                                         <div class="container">
                                             {!! Form::submit('Thêm sẩn phẩm vào đơn hàng', ['class' => 'btn btn-primary']) !!}
                                         </div>
@@ -62,5 +55,5 @@
                     </div>
 </div>
             </div> 
-
+            </div>
 @endsection

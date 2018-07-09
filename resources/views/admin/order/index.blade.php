@@ -50,10 +50,10 @@
                                                 <td>
                                                     <a href="{{ route('OrederShow', ['id' => $orders->id]) }}">{{ $orders->tenkhachhang }}</a>
                                                 </td>
-                                                <td>{{ $orders->tongtien }}</td>
-                                                <td>{{ $orders->tiendathanhtoan }}</td>
-                                                <td>{{ $orders->tienchuathanhtoan }}</td>
-                                                <td>{{ $orders->loinhuan }}</td>
+                                                  <td>{{ number_format($orders->tongtien,0,",",".") }}</td>
+                                                <td>{{ number_format($orders->tiendathanhtoan,0,",",".") }}</td>
+                                                 <td>{{ number_format($orders->tienchuathanhtoan,0,",",".") }}</td>
+                                                  <td>{{ number_format($orders->loinhuan,0,",",".") }}</td>
                                                 <td>{{ $orders->created_at }}</td>
                                             </tr>
                                         @endforeach

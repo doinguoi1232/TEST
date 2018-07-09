@@ -47,10 +47,16 @@
                                             <tr>
                                                 <td> <a href="{{ route('editProductsgiaban', ['id' => $productsgiaban->id]) }}">{{ $productsgiaban->name }}</a></td>
                                                 
-                                                <td>{{ $productsgiaban->giaban }}</td>
-                                                <td>{{ $productsgiaban->gianhap }}</td>
+                                                <td>{{ number_format($productsgiaban->giaban,0,",",".") }} </td>
+                                                <td>{{ number_format($productsgiaban->gianhap,0,",",".") }}</td>
                                                 <td>{{ $productsgiaban->created_at }}</td>
                                                 <td>{{ $productsgiaban->updated_at }}</td>
+                                                 <td class="text-center">
+                                                    <a href="{{ route('delteProductsgiaban', ['id' => $productsgiaban->id]) }}"><span class="glyphicon glyphicon-trash"></span>Delete</a>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="{{ route('editStoreProductsgiaban', ['id' => $productsgiaban->id]) }}"><span class="glyphicon glyphicon-trash"></span>Sửa</a>
+                                                </td>
                                                 
                                             </tr>
                                         @endforeach

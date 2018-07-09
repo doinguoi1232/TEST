@@ -36,7 +36,6 @@
                                                 <th>Tên Sản phẩm</th>
                                                 <th>Đơn giá</th>
                                                 <th>Số lượng</th>
-                                                <th>Tiền chưa thanh toán</th>
                                                 <th>Thành tiền</th>
                                             </tr>
                                         </thead>
@@ -47,10 +46,9 @@
                                             <tr>
                                                 <td>{{ $STT=$STT+1 }}</td>
                                                 <td>{{ $orders->sanpham }}</td>
-                                                <td>{{ $orders->dongia }}</td>
+                                                <td>{{ number_format($orders->dongia,0,",",".") }}</td>
                                                 <td>{{ $orders->soluong }}</td>
-                                                <td>{{ $orders->tienchuathanhtoan }}</td>
-                                                <td>{{ $orders->thanhtien }}</td>
+                                                <td>{{ number_format($orders->thanhtien,0,",",".") }}</td>
 
                                             </tr>
                                         @endforeach

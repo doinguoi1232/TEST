@@ -54,4 +54,10 @@ class productsgiabanController extends Controller
         return redirect()->route('indexProductsgiaban');
     }
     
+    public function destroy($id)       
+    {
+        productsgiabans::destroy($id);
+        return redirect()->route('indexProductsgiaban');
+    }
+    
 }

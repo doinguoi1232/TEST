@@ -10,6 +10,5 @@ class StoreController extends Controller
     {
         $nhakho = stores::all();
         return view('admin.nhakho.index')->with('nhakho', $nhakho);
-       
     }
 }

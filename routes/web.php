@@ -46,6 +46,5 @@ Route::get('/create/productsgiaban', 'productsgiabanController@create')->name('g
 Route::post('/create/productsgiaban', 'productsgiabanController@store')->name('postProductsgiaban');
 Route::get('/edit/productsgiaban/{id}', 'productsgiabanController@edit')->name('editProductsgiaban');
 Route::post('/edit/productsgiaban/{id}', 'productsgiabanController@editStore')->name('editStoreProductsgiaban');
-
 Route::get('/delete/productsgiaban/{id}', 'productsgiabanController@destroy')->name('delteProductsgiaban');
 

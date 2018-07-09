@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\products;
 use App\stores;
 use App\danhthu;
+use App\productsgiabans;
 class orderController extends Controller
 {
     public function index()       
@@ -36,7 +37,7 @@ class orderController extends Controller
         $order=new order;
         $order->tenkhachhang=$request->tenkhachhang;
         $order->tongtien=0;
-        $order->tiendathanhtoan=$request->tiendathanhtoan;;
+        $order->tiendathanhtoan=$request->tiendathanhtoan;
         $order->tienchuathanhtoan=0;
         $order->loinhuan=0;
         $order->userd_id=1;
@@ -47,9 +48,9 @@ class orderController extends Controller
                     return redirect()->route('indexOreder');
                }
         }
-        $danhthu=new danhthu;
-        $danhthu->danhthu=0;
-        $danhthu->save();
+        $danhthus=new danhthu;
+        $danhthus->danhthu=0;
+        $danhthus->save();
         return redirect()->route('indexOreder');
     }
 
@@ -64,30 +65,32 @@ class orderController extends Controller
     public function createOrderDetail($id)
     {
         $detail=$id;
-        $products = products::all();
+        $products = productsgiabans::all();
         return view('admin.order.addStore')->with('products', $products)->with('detail', $detail);
     }
     
     public function storeOrderDetail(Request $request)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $products = products::findOrFail($request->ten_san_pham);
-        $tienban=$products->giaban*$request->so_luong;
-        $tiennhap=$products->price*$request->so_luong;
+        $products = productsgiabans::findOrFail($request->ten_san_pham);
+        $tiennhap=$products->gianhap*$request->so_luong;
         $giaban=$products->giaban*$request->so_luong;
         $orderDetail=new orderDetail;  
         $orderDetail->sanpham=$request->ten_san_pham;
         $orderDetail->soluong=$request->so_luong;
         $orderDetail->dongia=$products->giaban;
-        $orderDetail->tienchuathanhtoan=$tienban-$tiennhap-$request->giam_gia;
-        $orderDetail->giamgia=$request->giam_gia;
-        $orderDetail->thanhtien=$giaban-$request->giam_gia;
+        $orderDetail->tienchuathanhtoan=$giaban-$tiennhap;
+        $orderDetail->giamgia=0;
+        $orderDetail->thanhtien=$giaban;
         $orderDetail->order_id=$request->order_id;
         $orderDetail->save();
         $order = order::findOrFail($request->order_id);
         $order->loinhuan=$order->loinhuan+$orderDetail->tienchuathanhtoan;
-        $order->tongtien=$order->tongtien+$orderDetail->thanhtien;        
+        $order->tongtien=$order->tongtien+$orderDetail->thanhtien;
         $order->save();
+        $tienchuathanhtoan = order::findOrFail($request->order_id);
+        $tienchuathanhtoan->tienchuathanhtoan=$order->tongtien-$tienchuathanhtoan->tiendathanhtoan;
+        $tienchuathanhtoan->save();
         $danhthu = danhthu::all();
         foreach ($danhthu as $item){
               if(date('d-m-Y', strtotime($item->created_at))== date('d-m-Y', strtotime($orderDetail->created_at))){

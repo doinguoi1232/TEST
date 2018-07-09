@@ -1,6 +1,5 @@
-@extends('admin.master')
+@extends('layouts.app')
 @section('content')
-        <div class="page-wrapper">
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
@@ -26,7 +25,6 @@
                                         <thead>
                                             <tr>
                                                 <th>id</th>
-                                                
                                                 <th>Tên sản phẩm</th>
                                                 <th>Số lượng</th>
                                             </tr>
@@ -38,8 +36,7 @@
                                                 <?php $products = DB::table('products')->where('id',
                                                 $nhakhos->id)->first ();?>
                                                 <td> {{ $stt= $stt+1}}</a></td>
-                                                
-                                                <td>{{  $products->name }}</td>
+                                                <td>{{  $nhakhos->name }}</td>
                                                 <td>{{  $nhakhos->soluong }}</td>
                                             </tr>
                                         @endforeach
@@ -55,5 +52,4 @@
                 </div>
                 <!-- End PAge Content -->
             </div>
-        </div>
 @endsection
