@@ -118,4 +118,11 @@ class orderController extends Controller
         $danhthu = danhthu::all(); 
         return view('admin.danhthu.index')->with('danhthu', $danhthu);
     }
+    
+    public function indexEvery()
+    {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $order = DB::table('orders')->where('created_at','like',date('Y-m-d%'))->get();
+        return view('admin.order.indexEvery')->with('order', $order);
+    }
 }

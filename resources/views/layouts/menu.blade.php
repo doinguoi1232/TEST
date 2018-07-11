@@ -8,10 +8,12 @@
 <li class="{{ Request::is('productsssses*') ? 'active' : '' }}">
     <a href="{!! route('indexOreder') !!}"><i class="fa fa-edit"></i><span>Đơn hàng</span></a>
 </li>
-
+<li class="{{ Request::is('productsgiabans*') ? 'active' : '' }}">
+    <a href="{!! route('indexEveryOreder') !!}"><i class="fa fa-edit"></i><span>Đơn hàng trong ngày</span></a>
+</li>
 
 <li class="{{ Request::is('productsgiabans*') ? 'active' : '' }}">
-    <a href="{!! route('indexProductsgiaban') !!}"><i class="fa fa-edit"></i><span>Productsgiabans</span></a>
+    <a href="{!! route('indexProductsgiaban') !!}"><i class="fa fa-edit"></i><span>Giá bán sản phẩm</span></a>
 </li>
 <li class="{{ Request::is('productsgiabans*') ? 'active' : '' }}">
     <a href="{!! route('listDanhthu') !!}"><i class="fa fa-edit"></i><span>Danh thu bán hàng</span></a>
@@ -19,6 +21,7 @@
 <li class="{{ Request::is('productsgiabans*') ? 'active' : '' }}">
     <a href="{!! route('StoreIndex') !!}"><i class="fa fa-edit"></i><span>Sản phầm trong kho</span></a>
 </li>
+
 
 
 
