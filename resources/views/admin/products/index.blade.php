@@ -21,12 +21,11 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Export</h4>
-                                <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                                <h4 class="card-title">In </h4>
                                 <section class="content-header">
-                                    <h1 class="pull-left">Productsssses</h1>
+                                    <h1 class="pull-left">Sản phẩm đã nhập</h1>
                                     <h1 class="pull-right">
-                                       <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('getOrder') !!}">Thêm mới sản phẩm đã nhập</a>
+                                       <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('getProducts') !!}">Thêm mới sản phẩm đã nhập</a>
                                     </h1>
                                 </section>
                                 <div class="table-responsive m-t-40">

@@ -16,7 +16,6 @@ class orderController extends Controller
     {
         $order = order::all();
         return view('admin.order.index')->with('order', $order);
-       
     }
     
     public function create()       
@@ -102,8 +101,8 @@ class orderController extends Controller
         }
         $soluong_stores = stores::all();
         foreach ($soluong_stores as $soluong_store){
-               if($soluong_store->products_id==$products->id && $soluong_store->soluong>$request->so_luong ){
-                    $stores_soluong=stores::where('products_id',$products->id)->first();
+               if($soluong_store->name== $products->name && $soluong_store->soluong>$request->so_luong ){
+                    $stores_soluong=stores::where('name',$products->name)->first();
                     $stores_id = stores::find($stores_soluong->id);
                     $stores_id->soluong=$stores_soluong->soluong-$request->so_luong;
                     $stores_id->save();

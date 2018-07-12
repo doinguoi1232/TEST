@@ -20,10 +20,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Export</h4>
-                                <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                                <h4 class="card-title">In tài liệu </h4>
                                  <section class="content-header">
-                                    <h1 class="pull-left">Productsssses</h1>
+                                    <h1 class="pull-left">Đơn hàng bán hằng ngày</h1>
                                     <h1 class="pull-right">
                                        <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('getOrder') !!}">Thêm mới đơn hàng</a>
                                     </h1>
@@ -44,8 +43,9 @@
                                         <tbody>
                                         <?php $STT=0;?>
 
-                                        @foreach($order as $orders)
+
                                             <tr>
+                                              @foreach($order as $orders)
                                                 <td>{{ $STT=$STT+1 }}</td>
                                                 <td>
                                                     <a href="{{ route('OrederShow', ['id' => $orders->id]) }}">{{ $orders->tenkhachhang }}</a>
@@ -55,8 +55,9 @@
                                                  <td>{{ number_format($orders->tienchuathanhtoan,0,",",".") }}</td>
                                                   <td>{{ number_format($orders->loinhuan,0,",",".") }}</td>
                                                 <td>{{ $orders->created_at }}</td>
+                                                 @endforeach
                                             </tr>
-                                        @endforeach
+                                       
                                         </tbody>
                                         
                                     </table>

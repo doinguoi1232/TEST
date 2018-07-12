@@ -26,9 +26,19 @@ class productsController extends Controller
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $this->validate($request, [
             'name' => 'required|max:255',
+            'don_gia' => 'required|max:255',
+            'so_luong' => 'required|max:255',
+            'don_vi' => 'required|max:255',
+            'ghi_chu' => 'required|max:255',
+            'gia_ban' => 'required|max:255',
         ],
-                [
+        [
             'name.required' => 'Vui lòng nhập tên sản phâm',
+            'don_gia.required' => 'Vui lòng nhập đơn giá',
+            'so_luong.required' => 'Vui lòng nhập số lượng',
+            'don_vi.required' => 'Vui lòng nhập đơn vị',
+            'ghi_chu.required' => 'Vui lòng nhập ghi chú',
+            'gia_ban.required' => 'Vui lòng nhập giá bán',  
         ]); 
         $products=new products;
         $products->name=$request->name;
