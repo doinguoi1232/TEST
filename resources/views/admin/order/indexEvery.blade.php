@@ -43,9 +43,9 @@
                                         <tbody>
                                         <?php $STT=0;?>
 
-
+@foreach($order as $orders)
                                             <tr>
-                                              @foreach($order as $orders)
+                                              
                                                 <td>{{ $STT=$STT+1 }}</td>
                                                 <td>
                                                     <a href="{{ route('OrederShow', ['id' => $orders->id]) }}">{{ $orders->tenkhachhang }}</a>
@@ -55,9 +55,9 @@
                                                  <td>{{ number_format($orders->tienchuathanhtoan,0,",",".") }}</td>
                                                   <td>{{ number_format($orders->loinhuan,0,",",".") }}</td>
                                                 <td>{{ $orders->created_at }}</td>
-                                                 @endforeach
+                                               
                                             </tr>
-                                       
+                                         @endforeach
                                         </tbody>
                                         
                                     </table>

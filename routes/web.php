@@ -36,6 +36,8 @@ Route::post('/create/order', 'OrderController@store')->name('postOrder');
 Route::get('/order', 'OrderController@index')->name('indexOreder');
 Route::get('/orderever', 'OrderController@indexEvery')->name('indexEveryOreder');
 Route::get('/danhthu', 'OrderController@listDanhthu')->name('listDanhthu');
+Route::get('/danhthuthang', 'OrderController@listDanhthuThang')->name('listDanhThuThang');
+Route::get('/danhthunam', 'OrderController@listDanhthunam')->name('listDanhThuNam');
 Route::get('/order/{id}', 'OrderController@show')->name('OrederShow');
 Route::get('/store', 'StoreController@index')->name('StoreIndex');
 Route::get('/create/order_detai/store/{id}', 'OrderController@createOrderDetail')->name('getOrderDetailStrore');

@@ -21,6 +21,12 @@
 <li class="{{ Request::is('productsgiabans*') ? 'active' : '' }}">
     <a href="{!! route('StoreIndex') !!}"><i class="fa fa-edit"></i><span>Sản phầm trong kho</span></a>
 </li>
+<li class="{{ Request::is('productsgiabans*') ? 'active' : '' }}">
+    <a href="{!! route('listDanhThuThang') !!}"><i class="fa fa-edit"></i><span>Danh thu hàng tháng</span></a>
+</li>
+<li class="{{ Request::is('productsgiabans*') ? 'active' : '' }}">
+    <a href="{!! route('listDanhThuNam') !!}"><i class="fa fa-edit"></i><span>Danh thu Năm</span></a>
+</li>
 
 
 

@@ -20,10 +20,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Export</h4>
-                                <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                                <h4 class="card-title">Xuất thông tin</h4>
                                  <section class="content-header">
-                                    <h1 class="pull-left">Productsssses</h1>
+                                    <h1 class="pull-left">Đơn hàng</h1>
                                     <h1 class="pull-right">
                                        <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('getOrder') !!}">Thêm mới đơn hàng</a>
                                     </h1>

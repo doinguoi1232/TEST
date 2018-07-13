@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use App\products;
 use App\stores;
 use App\danhthu;
+use App\danhthuthang;
+use App\danhthunam;
 use App\productsgiabans;
 class orderController extends Controller
 {
@@ -50,6 +52,24 @@ class orderController extends Controller
         $danhthus=new danhthu;
         $danhthus->danhthu=0;
         $danhthus->save();
+        $danhthuthangs = danhthuthang::all(); 
+        foreach ($danhthuthangs as $item){
+              if((date('m-Y', strtotime($item->created_at)) === date('m-Y', strtotime($order->created_at)))){
+                    return redirect()->route('indexOreder');
+               }
+        }
+        $danhthuthang=new danhthuthang;
+        $danhthuthang->danhthu=0;
+        $danhthuthang->save();
+        $danhthunames = danhthunam::all(); 
+        foreach ($danhthunames as $item){
+              if((date('Y', strtotime($item->created_at)) === date('Y', strtotime($order->created_at)))){
+                    return redirect()->route('indexOreder');
+               }
+        }
+        $danhthunam=new danhthunam;
+        $danhthunam->danhthu=0;
+        $danhthunam->save();
         return redirect()->route('indexOreder');
     }
 
@@ -108,6 +128,24 @@ class orderController extends Controller
                     $stores_id->save();
                }
         }
+        $danhthuthang = danhthuthang::all();
+        foreach ($danhthuthang as $itemthang){
+              if(date('m-Y', strtotime($itemthang->created_at))== date('m-Y', strtotime($orderDetail->created_at))){
+                    $danhthuthang_id=danhthuthang::where('created_at',$itemthang->created_at)->first();
+                    $danhthuthang_item = danhthuthang::find($danhthuthang_id->id);
+                    $danhthuthang_item->danhthu=$danhthuthang_item->danhthu+$orderDetail->tienchuathanhtoan;
+                    $danhthuthang_item->save();
+               }
+        }
+        $danhthunam = danhthunam::all();
+        foreach ($danhthunam as $itemtnam){
+              if(date('Y', strtotime($itemtnam->created_at))== date('Y', strtotime($orderDetail->created_at))){
+                    $danhthunam_id=danhthunam::where('created_at',$itemtnam->created_at)->first();
+                    $danhthunam_item = danhthunam::find($danhthunam_id->id);
+                    $danhthunam_item->danhthu=$danhthunam_item->danhthu+$orderDetail->tienchuathanhtoan;
+                    $danhthunam_item->save();
+               }
+        }
         return redirect()->route('indexOreder');
        
     }
@@ -116,6 +154,18 @@ class orderController extends Controller
     {
         $danhthu = danhthu::all(); 
         return view('admin.danhthu.index')->with('danhthu', $danhthu);
+    }
+    
+    public function listDanhthuThang()
+    {
+        $danhthu = danhthuthang::all();
+        return view('admin.danhthu.indexThang')->with('danhthu', $danhthu);
+    }
+    
+    public function listDanhthunam()
+    {
+        $danhthu = danhthunam::all();
+        return view('admin.danhthu.indexNam')->with('danhthu', $danhthu);
     }
     
     public function indexEvery()
